@@ -1,0 +1,5 @@
+*.rx
+*.in
+*.out
+.vscode/
+bin/
