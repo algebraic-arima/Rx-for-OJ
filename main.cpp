@@ -29,7 +29,7 @@ int main(int argc, char **argv) {
     if (pos + prefix.size() <= line.size() &&
         line.compare(pos, prefix.size(), prefix) == 0) {
       std::string verdict = line.substr(pos + prefix.size());
-      if (verdict == "Pass") {
+      if (verdict.substr(0, 4) == "Pass") {
         std::cout << 1 << std::endl;
         return 0;
       } else {
