@@ -30,10 +30,26 @@ int main(int argc, char **argv) {
         line.compare(pos, prefix.size(), prefix) == 0) {
       std::string verdict = line.substr(pos + prefix.size());
       if (verdict.substr(0, 4) == "Pass") {
-        std::cout << 1 << std::endl;
+        std::ifstream test_ll("test.ll");
+        std::ifstream builtin_c("builtin.c");
+        
+        if (test_ll.is_open()) {
+          std::cout << test_ll.rdbuf();
+        } else {
+          std::cerr << "cannot open file 'test.ll'\n";
+          return 1;
+        }
+        
+        if (builtin_c.is_open()) {
+          std::cerr << builtin_c.rdbuf();
+        } else {
+          std::cerr << "cannot open file 'builtin.c'\n";
+          return 1;
+        }
+
         return 0;
       } else {
-        std::cout << 0 << std::endl;
+        std::cerr << "semantic failed\n";
         return 1;
       }
     }
