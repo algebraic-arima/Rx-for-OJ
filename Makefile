@@ -17,10 +17,10 @@ endif
 
 build:
 	@mkdir -p bin
-	$(CXX) $(CXXFLAGS) -o $(BIN) $(SRC) $(LDFLAGS)
+	@$(CXX) $(CXXFLAGS) -o $(BIN) $(SRC) $(LDFLAGS)
 
 run:
-	./$(BIN)
+	@./$(BIN)
 
 clean:
 	rm -rf bin
